@@ -1,23 +1,16 @@
 import React, { FC } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import { Box, ButtonText } from '@gluestack-ui/themed';
 
-interface Props {
-  navigation: any;
-  leftText?: string;
-  leftIcon?: React.ReactNode;
-  headerTitle?: string;
-  rightText?: string;
-  rightButton?: React.ReactNode;
-}
+import { HeaderProps } from './types';
 
-export const Header: FC<Props> = ({
-  navigation,
+export const Header: FC<HeaderProps> = ({
   leftText,
-  leftIcon,
+  headerLeft,
   headerTitle,
   rightText,
   rightButton,
+  onPressLeft,
 }) => {
   return (
     <Box
@@ -30,19 +23,19 @@ export const Header: FC<Props> = ({
       height={65}
       borderBottomLeftRadius={15}
     >
-      {(leftText || leftIcon) && (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          {leftIcon && leftText ? (
+      {(leftText || headerLeft) && (
+        <TouchableWithoutFeedback onPress={onPressLeft}>
+          {headerLeft && leftText ? (
             <Box flexDirection="row" alignItems="center">
-              <Box marginRight={5}>{leftIcon}</Box>
+              <Box marginRight={10}>{headerLeft}</Box>
               <ButtonText>{leftText}</ButtonText>
             </Box>
-          ) : leftIcon ? (
-            <Box>{leftIcon}</Box>
+          ) : headerLeft ? (
+            <Box>{headerLeft}</Box>
           ) : leftText ? (
             <ButtonText>{leftText}</ButtonText>
           ) : null}
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       )}
 
       <Box flex={1} alignItems="center">
@@ -54,7 +47,7 @@ export const Header: FC<Props> = ({
       {rightText && rightButton ? (
         <Box flexDirection="row" alignItems="center">
           <ButtonText>{rightText}</ButtonText>
-          <Box marginLeft={5}>{rightButton}</Box>
+          <Box marginLeft={10}>{rightButton}</Box>
         </Box>
       ) : rightText ? (
         <ButtonText>{rightText}</ButtonText>

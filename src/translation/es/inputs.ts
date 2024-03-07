@@ -1,4 +1,12 @@
 export default {
+  name: {
+    trainingType: 'Tipo de entrenamiento',
+    trainingTime: 'Tiempo de entrenamiento',
+    trainingIntensity: 'Intensidad de entrenamiento',
+    trainingGoals: 'Metas de entrenamiento',
+    weight: 'Peso',
+    height: 'Estatura',
+  },
   label: {
     email: 'Email',
     password: 'Contraseña',
@@ -7,6 +15,12 @@ export default {
     lastName: 'Apellido',
     birthDate: 'Fecha de nacimiento',
     gender: 'Genero',
+    trainingType: '',
+    trainingTime: '',
+    trainingIntensity: '',
+    trainingGoals: '',
+    weight: '',
+    height: '',
   },
   placeholder: {
     email: 'john.doe@example.com',
@@ -18,6 +32,12 @@ export default {
     birthDate: 'DD/MM/AAAA',
     datepicker: 'Seleccione una fecha',
     gender: 'Seleccione una opcion',
+    trainingType: '',
+    trainingTime: '',
+    trainingIntensity: '',
+    trainingGoals: '',
+    weight: 'Peso',
+    height: 'Estatura',
   },
   error: {
     required: '{{field}} es requerido',

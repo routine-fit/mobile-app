@@ -9,6 +9,8 @@ export type BottomTabParamList = {
 export type MainDrawerParamList = {
   Home: undefined;
   Profile: undefined;
+  EditPersonalInfo: undefined;
+  EditTrainingPreferences: undefined;
 };
 
 export type RootStackParamList = {

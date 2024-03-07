@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 import { Box, Text } from '@gluestack-ui/themed';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 
@@ -10,7 +11,7 @@ import {
   SettingsIcon,
 } from 'src/assets/svg/navigation-icons/';
 import ROUTES from 'src/constants/routes';
-import { useAppDispatch } from 'src/store';
+import { RootState, useAppDispatch } from 'src/store';
 import { startLogoutUser } from 'src/store/auth/thunks';
 
 import { MenuItem } from './components/menu-item';
@@ -31,6 +32,7 @@ const navigationRoutes = [
 
 const DrawerContent: FC<DrawerContentComponentProps> = ({ navigation }) => {
   const dispatch = useAppDispatch();
+  const { displayName } = useSelector((state: RootState) => state.auth);
 
   const handleLogout = async () => {
     await dispatch(startLogoutUser());
@@ -49,7 +51,7 @@ const DrawerContent: FC<DrawerContentComponentProps> = ({ navigation }) => {
         borderBottomWidth={2}
       >
         <UserAvatar width={70} height={70} />
-        <Text size="xl">username</Text>
+        <Text size="xl">{displayName}</Text>
       </Box>
 
       <Box padding={15}>

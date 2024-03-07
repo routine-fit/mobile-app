@@ -1,5 +1,9 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTranslation } from 'react-i18next';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 
 import {
   ExerciseScreen,
@@ -13,13 +17,16 @@ import {
 } from 'src/assets/svg/navigation-icons';
 import { BottomTabParamList } from 'src/types/navigation';
 
+import { Header } from '../components/header';
+
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
-const tabBarOptions = {
-  headerShown: false,
+const tabBarOptions: BottomTabNavigationOptions = {
+  headerShown: true,
   tabBarActiveBackgroundColor: '#D9D9D9',
   tabBarInactiveBackgroundColor: '#D9D9D9',
   tabBarShowLabel: false,
+  header: ({ options }) => <Header headerTitle={options.headerTitle} />,
 };
 
 const renderIcon = (icon: JSX.Element, focused: boolean) =>
@@ -28,6 +35,7 @@ const renderIcon = (icon: JSX.Element, focused: boolean) =>
   });
 
 export const BottomTab = () => {
+  const { t } = useTranslation();
   return (
     <Tab.Navigator screenOptions={tabBarOptions} initialRouteName="HomeScreen">
       <Tab.Screen
@@ -35,6 +43,7 @@ export const BottomTab = () => {
         component={RoutinesScreen}
         options={{
           tabBarIcon: ({ focused }) => renderIcon(<RoutineIcon />, focused),
+          headerTitle: t('navigation:headers.routines'),
         }}
       />
       <Tab.Screen
@@ -42,6 +51,7 @@ export const BottomTab = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => renderIcon(<HomeIcon />, focused),
+          headerTitle: t('navigation:headers.home'),
         }}
       />
       <Tab.Screen
@@ -49,6 +59,7 @@ export const BottomTab = () => {
         component={ExerciseScreen}
         options={{
           tabBarIcon: ({ focused }) => renderIcon(<DumbbellIcon />, focused),
+          headerTitle: t('navigation:headers.exercises'),
         }}
       />
     </Tab.Navigator>

@@ -32,7 +32,7 @@ const ControlledInput = <Form extends FieldValues>({
       isRequired={formControlProps.isRequired || !!controller.rules?.required}
     >
       <FormControlLabel>
-        <FormControlLabelText>{label}</FormControlLabelText>
+        {label && <FormControlLabelText>{label}</FormControlLabelText>}
       </FormControlLabel>
       <Input
         {...inputProps}

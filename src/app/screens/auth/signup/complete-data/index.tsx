@@ -66,7 +66,10 @@ export const CompleteDataScreen = ({
   return (
     <SafeAreaView style={commonStyles.safeAreaViewStyle}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.select({
+          ios: 'padding',
+          android: 'height',
+        })}
         style={commonStyles.keyboardAvoidingView}
       >
         <Box padding={20} flex={1} justifyContent="center" mt="$6" mb="$8">

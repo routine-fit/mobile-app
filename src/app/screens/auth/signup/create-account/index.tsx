@@ -47,7 +47,10 @@ export const CreateAccountScreen = ({
   return (
     <SafeAreaView style={commonStyles.safeAreaViewStyle}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.select({
+          ios: 'padding',
+          android: 'height',
+        })}
         style={commonStyles.keyboardAvoidingView}
       >
         <Box padding={20} flex={1} justifyContent="center" mb="$12">

@@ -21,8 +21,8 @@ export const getAuthenticatedGroup = () => {
             header: () => (
               <Header
                 leftText={t('navigation:headers.login')}
-                leftIcon={<BackArrowIcon />}
-                navigation={navigation}
+                headerLeft={<BackArrowIcon />}
+                onPressLeft={navigation.goBack}
               />
             ),
           })}
@@ -33,9 +33,9 @@ export const getAuthenticatedGroup = () => {
           options={({ navigation }) => ({
             header: () => (
               <Header
-                leftIcon={<BackArrowIcon />}
-                navigation={navigation}
                 headerTitle={t('navigation:headers.completeDataScreen')}
+                headerLeft={<BackArrowIcon />}
+                onPressLeft={navigation.goBack}
               />
             ),
           })}

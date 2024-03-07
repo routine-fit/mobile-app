@@ -1,0 +1,15 @@
+{
+  "displayName": "John Doe",
+  "name": "John",
+  "lastName": "Doe",
+  "gender": "Masculino",
+  "email": "john.doe@example.com",
+  "birthDate": "01/01/1990",
+  "weight": "75kg",
+  "height": "180cm",
+  "trainingType": "Fuerza",
+  "trainingTime": "90'",
+  "trainingIntensity": "Medio",
+  "trainingGoals": "Aumento de masa muscular",
+  "password": "Password123"
+}
